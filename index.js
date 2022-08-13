@@ -25,7 +25,7 @@ function convertDateToStr(date) {
     month: "",
     year: "",
   };
-  if (date.day < 0) {
+  if (date.day < 10) {
     dateStr.day = "0" + date.day;
   } else {
     dateStr.day = date.day.toString();
@@ -49,9 +49,9 @@ function getDateInAllFormates(date) {
   let ddmmyyyy = dateStr.day + dateStr.month + dateStr.year;
   let mmddyyyy = dateStr.month + dateStr.day + dateStr.year;
   let yyyymmdd = dateStr.year + dateStr.month + dateStr.day;
-  let ddmmyy = dateStr.day + dateStr.month + dateStr.year;
-  let mmddyy = dateStr.month + dateStr.day + dateStr.year;
-  let yymmdd = dateStr.year + dateStr.month + dateStr.day;
+  let ddmmyy = dateStr.day + dateStr.month + dateStr.year.slice(-2);
+  let mmddyy = dateStr.month + dateStr.day + dateStr.year.slice(-2);
+  let yymmdd = dateStr.year.slice(-2) + dateStr.month + dateStr.day;
 
   return [ddmmyyyy, mmddyyyy, yyyymmdd, ddmmyy, mmddyy, yymmdd];
 }
